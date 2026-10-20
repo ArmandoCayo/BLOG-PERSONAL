@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Armando Cayo L| Blog Personal - Sistemas Informáticos</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            500: '#0284c7',
+                            600: '#0369a1',
+                            700: '#075985',
+                        },
+                        tech: {
+                            dark: '#0f172a',
+                            card: '#1e293b',
+                            accent: '#38bdf8'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts & Phosphor Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .gradient-text {
+            background: linear-gradient(135deg, #38bdf8 0%, #818cf8 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .glass-effect {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 transition-colors duration-300 min-h-screen flex flex-col justify-between">
+
+    <!-- BARRA DE NAVEGACIÓN -->
+    <nav class="sticky top-0 z-40 w-full bg-white/80 dark:bg-slate-900/80 glass-effect border-b border-slate-200 dark:border-slate-800 transition-colors">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo / Nombre -->
+                <a href="#hero" class="flex items-center gap-2 text-xl font-bold tracking-tight text-slate-900 dark:text-white">
+                    <span class="p-2 bg-sky-500/10 text-sky-500 rounded-lg">
+                        <i class="ph-bold ph-code text-2xl"></i>
+                    </span>
+                    <span>Armando<span class="text-sky-500">.Cayo</span></span>
+                </a>
+
+                <!-- Navegación Desktop -->
+                <div class="hidden md:flex items-center gap-8 font-medium text-sm">
+                    <a href="#sobre-mi" class="hover:text-sky-500 transition-colors">Sobre Mí</a>
+                    <a href="#publicaciones" class="hover:text-sky-500 transition-colors">Blog</a>
+                    <a href="#habilidades" class="hover:text-sky-500 transition-colors">Habilidades</a>
+                    <a href="#proyectos" class="hover:text-sky-500 transition-colors">Proyectos</a>
+                    <a href="#comentarios" class="hover:text-sky-500 transition-colors">Comunidad</a>
+                    <a href="#contacto" class="hover:text-sky-500 transition-colors">Contacto</a>
+                </div>
+
+                <!-- Botón Modo Oscuro / Menú Móvil -->
+                <div class="flex items-center gap-3">
+                    <button id="theme-toggle" class="p-2 rounded-lg bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:text-sky-500 transition-all" title="Cambiar tema">
+                        <i id="theme-icon" class="ph-bold ph-sun text-xl text-amber-400"></i>
+                    </button>
+                    <button id="mobile-menu-btn" class="md:hidden p-2 rounded-lg bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300">
+                        <i class="ph-bold ph-list text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Menú Desplegable Móvil -->
+        <div id="mobile-menu" class="hidden md:hidden px-4 pt-2 pb-4 bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 space-y-2">
+            <a href="#sobre-mi" class="block py-2 text-slate-700 dark:text-slate-300 hover:text-sky-500">Sobre Mí</a>
+            <a href="#publicaciones" class="block py-2 text-slate-700 dark:text-slate-300 hover:text-sky-500">Blog</a>
+            <a href="#habilidades" class="block py-2 text-slate-700 dark:text-slate-300 hover:text-sky-500">Habilidades</a>
+            <a href="#proyectos" class="block py-2 text-slate-700 dark:text-slate-300 hover:text-sky-500">Proyectos</a>
+            <a href="#comentarios" class="block py-2 text-slate-700 dark:text-slate-300 hover:text-sky-500">Comunidad</a>
+            <a href="#contacto" class="block py-2 text-slate-700 dark:text-slate-300 hover:text-sky-500">Contacto</a>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header id="hero" class="relative py-20 lg:py-28 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Texto de Bienvenida -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-sky-500/10 text-sky-500 text-sm font-semibold border border-sky-500/20">
+                        <i class="ph-bold ph-student"></i> Estudiante de Sistemas Informáticos
+                    </div>
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
+                        Transformando el Futuro a través del <span class="gradient-text">Código y la Innovación</span>
+                    </h1>
+                    <p class="text-lg text-slate-600 dark:text-slate-400 max-w-2xl mx-auto lg:mx-0">
+                        "La informática no es solo escribir líneas de código; es la herramienta de superación personal definitiva para resolver problemas complejos y abrir infinitas posibilidades."
+                    </p>
+                    
+                    <!-- Botones de Acción -->
+                    <div class="flex flex-wrap gap-4 justify-center lg:justify-start pt-2">
+                        <a href="#publicaciones" class="px-6 py-3 bg-sky-600 hover:bg-sky-500 text-white font-medium rounded-xl shadow-lg shadow-sky-500/25 transition-all transform hover:-translate-y-0.5 flex items-center gap-2">
+                            <i class="ph-bold ph-book-open"></i> Leer Publicaciones
+                        </a>
+                        <a href="#contacto" class="px-6 py-3 bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 font-medium rounded-xl transition-all flex items-center gap-2">
+                            <i class="ph-bold ph-envelope-simple"></i> Contactarme
+                        </a>
+                    </div>
+
+                    <!-- Enlaces Rápidos de Contacto -->
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4 text-slate-500 dark:text-slate-400">
+                        <a href="mailto:armando.cayo.dev@gmail.com" class="hover:text-sky-500 transition-colors flex items-center gap-1.5 text-sm font-medium">
+                            <i class="ph-bold ph-envelope text-lg text-sky-500"></i> armando.cayo.dev@gmail.com
+                        </a>
+                        <span class="hidden sm:inline">•</span>
+                        <div class="flex gap-4 text-xl">
+                            <a href="https://github.com" target="_blank" class="hover:text-sky-500 transition-colors" title="GitHub"><i class="ph-bold ph-github-logo"></i></a>
+                            <a href="https://linkedin.com" target="_blank" class="hover:text-sky-500 transition-colors" title="LinkedIn"><i class="ph-bold ph-linkedin-logo"></i></a>
+                            <a href="https://twitter.com" target="_blank" class="hover:text-sky-500 transition-colors" title="Twitter"><i class="ph-bold ph-twitter-logo"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Foto de Perfil Destacada -->
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="relative group">
+                        <!-- Resplandor decorativo -->
+                        <div class="absolute -inset-1 bg-gradient-to-r from-sky-500 to-indigo-500 rounded-3xl blur-xl opacity-40 group-hover:opacity-75 transition duration-500"></div>
+                        
+                        <div class="relative bg-white dark:bg-slate-800 p-3 rounded-3xl border border-slate-200 dark:border-slate-700 shadow-2xl max-w-sm">
+                            <img src="foto.jpg" 
+                                 alt="Armando Cayo" 
+                                 class="w-full h-80 object-cover rounded-2xl"
+                                 onerror="this.onerror=null; this.src='https://placehold.co/400x500/0284c7/white?text=Armando+Cayo';">
+                            <div class="p-4 text-center">
+                                <h3 class="font-bold text-lg text-slate-900 dark:text-white">Armando Cayo</h3>
+                                <p class="text-xs text-slate-500 dark:text-slate-400">Desarrollador en Formación & Apasionado por la TI</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <!-- SECCIÓN SOBRE MÍ Y VISIÓN DE SUPERACIÓN -->
+    <section id="sobre-mi" class="py-16 bg-slate-100/50 dark:bg-slate-800/40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <h2 class="text-3xl font-extrabold text-slate-900 dark:text-white">Sobre Mí & Filosofía</h2>
+                <p class="text-slate-600 dark:text-slate-400 mt-2">El aprendizaje constante y la tecnología como catalizadores de cambio.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Tarjeta 1: Mi Historia -->
+                <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-all">
+                    <div class="w-12 h-12 bg-sky-500/10 text-sky-500 rounded-xl flex items-center justify-center text-2xl mb-4">
+                        <i class="ph-bold ph-path"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Mi Historia</h3>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                        Como estudiante de la carrera de Sistemas Informáticos, descubrí en las tecnologías de información una disciplina fascinante y un camino de superación personal constante para alcanzar la excelencia técnica.
+                    </p>
+                </div>
+
+                <!-- Tarjeta 2: La Idea de Superación -->
+                <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-all">
+                    <div class="w-12 h-12 bg-indigo-500/10 text-indigo-500 rounded-xl flex items-center justify-center text-2xl mb-4">
+                        <i class="ph-bold ph-rocket-launch"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Superación Digital</h3>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                        Creo firmemente que la informática democratiza las oportunidades. Mediante la dedicación, la lógica de programación y el autoaprendizaje, es posible romper barreras y resolver problemas comunitarios de alto valor.
+                    </p>
+                </div>
+
+                <!-- Tarjeta 3: Metas Académicas -->
+                <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-all">
+                    <div class="w-12 h-12 bg-emerald-500/10 text-emerald-500 rounded-xl flex items-center justify-center text-2xl mb-4">
+                        <i class="ph-bold ph-target"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">Metas & Visión</h3>
+                    <p class="text-slate-600 dark:text-slate-400 text-sm leading-relaxed">
+                        Busco especializarme en la construcción de software escalable, administración de bases de datos e infraestructura de redes, colaborando en proyectos Open Source y promoviendo la educación tecnológica.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN DE PUBLICACIONES / BLOG -->
+    <section id="publicaciones" class="py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+                <div>
+                    <h2 class="text-3xl font-extrabold text-slate-900 dark:text-white">Artículos del Blog</h2>
+                    <p class="text-slate-600 dark:text-slate-400 mt-2">Reflexiones, tutoriales y aprendizajes durante mi camino académico.</p>
+                </div>
+
+                <!-- Buscador de Artículos -->
+                <div class="relative w-full md:w-72">
+                    <input type="text" id="search-input" placeholder="Buscar publicación..." class="w-full pl-10 pr-4 py-2.5 rounded-xl border border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-sm focus:outline-none focus:ring-2 focus:ring-sky-500">
+                    <i class="ph-bold ph-magnifying-glass absolute left-3.5 top-3 text-slate-400 text-base"></i>
+                </div>
+            </div>
+
+            <!-- Filtros por Categoría -->
+            <div class="flex flex-wrap gap-2 mb-8" id="blog-filters">
+                <button data-filter="Todos" class="filter-btn active px-4 py-2 rounded-xl text-sm font-medium bg-sky-600 text-white transition-all">Todos</button>
+                <button data-filter="Pensamientos" class="filter-btn px-4 py-2 rounded-xl text-sm font-medium bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-sky-500 hover:text-white transition-all">Pensamientos</button>
+                <button data-filter="Tutoriales" class="filter-btn px-4 py-2 rounded-xl text-sm font-medium bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-sky-500 hover:text-white transition-all">Tutoriales</button>
+                <button data-filter="Sistemas" class="filter-btn px-4 py-2 rounded-xl text-sm font-medium bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-sky-500 hover:text-white transition-all">Sistemas</button>
+                <button data-filter="Proyectos" class="filter-btn px-4 py-2 rounded-xl text-sm font-medium bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-sky-500 hover:text-white transition-all">Proyectos</button>
+            </div>
+
+            <!-- Grilla de Artículos -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="posts-container">
+                <!-- Se generan dinámicamente -->
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN DE HABILIDADES TÉCNICAS -->
+    <section id="habilidades" class="py-16 bg-slate-100/50 dark:bg-slate-800/40">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <h2 class="text-3xl font-extrabold text-slate-900 dark:text-white">Habilidades Técnicas</h2>
+                <p class="text-slate-600 dark:text-slate-400 mt-2">Tecnologías y lenguajes desarrollados a lo largo de la carrera.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <!-- Barra 1 -->
+                <div class="bg-white dark:bg-slate-800 p-5 rounded-2xl border border-slate-200 dark:border-slate-700">
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="font-semibold flex items-center gap-2"><i class="ph-bold ph-code text-sky-500"></i> JavaScript / Web Frontend</span>
+                        <span class="text-sm text-sky-500 font-bold">50%</span>
+                    </div>
+                    <div class="w-full bg-slate-200 dark:bg-slate-700 h-3 rounded-full overflow-hidden">
+                        <div class="bg-sky-500 h-full rounded-full" style="width: 50%"></div>
+                    </div>
+                </div>
+
+                <!-- Barra 2 -->
+                <div class="bg-white dark:bg-slate-800 p-5 rounded-2xl border border-slate-200 dark:border-slate-700">
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="font-semibold flex items-center gap-2"><i class="ph-bold ph-database text-indigo-500"></i> Bases de Datos (SQL & MySQL)</span>
+                        <span class="text-sm text-indigo-500 font-bold">45%</span>
+                    </div>
+                    <div class="w-full bg-slate-200 dark:bg-slate-700 h-3 rounded-full overflow-hidden">
+                        <div class="bg-indigo-500 h-full rounded-full" style="width: 45%"></div>
+                    </div>
+                </div>
+
+                <!-- Barra 3 -->
+                <div class="bg-white dark:bg-slate-800 p-5 rounded-2xl border border-slate-200 dark:border-slate-700">
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="font-semibold flex items-center gap-2"><i class="ph-bold ph-terminal-window text-emerald-500"></i> Python & Programación Lógica</span>
+                        <span class="text-sm text-emerald-500 font-bold">43%</span>
+                    </div>
+                    <div class="w-full bg-slate-200 dark:bg-slate-700 h-3 rounded-full overflow-hidden">
+                        <div class="bg-emerald-500 h-full rounded-full" style="width: 43%"></div>
+                    </div>
+                </div>
+
+                <!-- Barra 4 -->
+                <div class="bg-white dark:bg-slate-800 p-5 rounded-2xl border border-slate-200 dark:border-slate-700">
+                    <div class="flex justify-between items-center mb-2">
+                        <span class="font-semibold flex items-center gap-2"><i class="ph-bold ph-network text-amber-500"></i> Redes, Linux & Sistemas Operativos</span>
+                        <span class="text-sm text-amber-500 font-bold">38%</span>
+                    </div>
+                    <div class="w-full bg-slate-200 dark:bg-slate-700 h-3 rounded-full overflow-hidden">
+                        <div class="bg-amber-500 h-full rounded-full" style="width: 38%"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Insignias Tecnológicas -->
+            <div class="mt-12 flex flex-wrap justify-center gap-3">
+                <span class="px-4 py-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-sm font-medium flex items-center gap-2"><i class="ph-bold ph-git-branch text-orange-500"></i> Git & GitHub</span>
+                <span class="px-4 py-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-sm font-medium flex items-center gap-2"><i class="ph-bold ph-cpu text-sky-500"></i> Ensamblado & Hardware</span>
+                <span class="px-4 py-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-sm font-medium flex items-center gap-2"><i class="ph-bold ph-shield-check text-green-500"></i> Fundamentos de Ciberseguridad</span>
+                <span class="px-4 py-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-sm font-medium flex items-center gap-2"><i class="ph-bold ph-brackets-curly text-purple-500"></i> HTML5 / CSS3 / Tailwind</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN DE PROYECTOS E INICIATIVAS -->
+    <section id="proyectos" class="py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-12">
+                <h2 class="text-3xl font-extrabold text-slate-900 dark:text-white">Proyectos e Iniciativas</h2>
+                <p class="text-slate-600 dark:text-slate-400 mt-2">Soluciones desarrolladas durante la carrera y proyectos de aprendizaje autónomo.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Proyecto 1 -->
+                <div class="bg-white dark:bg-slate-800 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-700 shadow-sm flex flex-col justify-between">
+                    <div class="h-48 bg-slate-200 dark:bg-slate-700 relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=600" alt="Gestor Académico" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <span class="text-xs font-semibold text-sky-500 uppercase tracking-wider">Sistema Web</span>
+                            <h3 class="text-xl font-bold mt-1 mb-2">Sistema de Control Académico</h3>
+                            <p class="text-slate-600 dark:text-slate-400 text-sm">Plataforma para administración de calificaciones, registro de materias e historial estudiantil.</p>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-slate-100 dark:border-slate-700 flex justify-between items-center">
+                            <span class="text-xs text-slate-500">PHP • MySQL • Bootstrap</span>
+                            <a href="https://github.com" target="_blank" class="text-sky-500 hover:text-sky-600 text-sm font-semibold flex items-center gap-1">Código <i class="ph-bold ph-arrow-square-out"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proyecto 2 -->
+                <div class="bg-white dark:bg-slate-800 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-700 shadow-sm flex flex-col justify-between">
+                    <div class="h-48 bg-slate-200 dark:bg-slate-700 relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&q=80&w=600" alt="Monitor de Red" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <span class="text-xs font-semibold text-indigo-500 uppercase tracking-wider">Redes & Scripts</span>
+                            <h3 class="text-xl font-bold mt-1 mb-2">Monitor de Protocolos de Red</h3>
+                            <p class="text-slate-600 dark:text-slate-400 text-sm">Herramienta en Python para análisis de estado de conexiones y diagnóstico en tiempo real.</p>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-slate-100 dark:border-slate-700 flex justify-between items-center">
+                            <span class="text-xs text-slate-500">Python • Linux Bash</span>
+                            <a href="https://github.com" target="_blank" class="text-sky-500 hover:text-sky-600 text-sm font-semibold flex items-center gap-1">Código <i class="ph-bold ph-arrow-square-out"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Proyecto 3 -->
+                <div class="bg-white dark:bg-slate-800 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-700 shadow-sm flex flex-col justify-between">
+                    <div class="h-48 bg-slate-200 dark:bg-slate-700 relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=600" alt="Blog Personal" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6 flex-1 flex flex-col justify-between">
+                        <div>
+                            <span class="text-xs font-semibold text-emerald-500 uppercase tracking-wider">Frontend</span>
+                            <h3 class="text-xl font-bold mt-1 mb-2">Blog Interactivo Personal</h3>
+                            <p class="text-slate-600 dark:text-slate-400 text-sm">Sitio web responsivo con búsqueda en tiempo real, comentarios persistentes y diseño adaptativo.</p>
+                        </div>
+                        <div class="mt-6 pt-4 border-t border-slate-100 dark:border-slate-700 flex justify-between items-center">
+                            <span class="text-xs text-slate-500">HTML5 • Tailwind • JS</span>
+                            <a href="#hero" class="text-sky-500 hover:text-sky-600 text-sm font-semibold flex items-center gap-1">Ver Demo <i class="ph-bold ph-arrow-up-right"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN DE COMENTARIOS INTERACTIVA (LOCALSTORAGE) -->
+    <section id="comentarios" class="py-16 bg-slate-100/50 dark:bg-slate-800/40">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-extrabold text-slate-900 dark:text-white">Comunidad & Feedback</h2>
+                <p class="text-slate-600 dark:text-slate-400 mt-2">¿Tienes alguna pregunta, sugerencia o mensaje de superación? ¡Comenta aquí!</p>
+            </div>
+
+            <!-- Formulario de comentario -->
+            <div class="bg-white dark:bg-slate-800 p-6 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm mb-8">
+                <h3 class="text-lg font-bold mb-4 flex items-center gap-2"><i class="ph-bold ph-chat-circle-text text-sky-500"></i> Deja tu mensaje</h3>
+                <form id="comment-form" class="space-y-4">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <input type="text" id="comment-name" placeholder="Tu Nombre completo" required class="w-full px-4 py-2.5 rounded-xl border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-sky-500 text-sm">
+                        <input type="text" id="comment-role" placeholder="Ocupación (Ej. Estudiante, Desarrollador)" class="w-full px-4 py-2.5 rounded-xl border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-sky-500 text-sm">
+                    </div>
+                    <textarea id="comment-text" rows="3" placeholder="Escribe tu comentario..." required class="w-full px-4 py-2.5 rounded-xl border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-sky-500 text-sm resize-none"></textarea>
+                    <button type="submit" class="px-5 py-2.5 bg-sky-600 hover:bg-sky-500 text-white font-medium rounded-xl text-sm transition-all flex items-center gap-2">
+                        <i class="ph-bold ph-paper-plane-right"></i> Publicar Comentario
+                    </button>
+                </form>
+            </div>
+
+            <!-- Lista de comentarios -->
+            <div id="comments-list" class="space-y-4">
+                <!-- Se cargan dinámicamente desde LocalStorage -->
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN DE CONTACTO INTERACTIVA -->
+    <section id="contacto" class="py-16">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="bg-white dark:bg-slate-800 rounded-3xl border border-slate-200 dark:border-slate-700 p-8 sm:p-12 shadow-xl">
+                <div class="text-center mb-8">
+                    <h2 class="text-3xl font-extrabold text-slate-900 dark:text-white">Contacto Directo</h2>
+                    <p class="text-slate-600 dark:text-slate-400 mt-2">¿Quieres intercambiar ideas sobre informática o colaborar en un proyecto?</p>
+                </div>
+
+                <!-- Mensaje de confirmación -->
+                <div id="contact-success" class="hidden mb-6 p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 text-sm flex items-center gap-2">
+                    <i class="ph-bold ph-check-circle text-xl"></i> ¡Gracias por comunicarte! He recibido tu mensaje.
+                </div>
+
+                <form id="contact-form" class="space-y-6">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Nombre Completo</label>
+                            <input type="text" id="contact-name" required class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-sky-500 text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium mb-2">Correo Electrónico</label>
+                            <input type="email" id="contact-email" required class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-sky-500 text-sm">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Asunto</label>
+                        <input type="text" id="contact-subject" required class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-sky-500 text-sm">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-medium mb-2">Mensaje</label>
+                        <textarea id="contact-message" rows="4" required class="w-full px-4 py-3 rounded-xl border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 focus:outline-none focus:ring-2 focus:ring-sky-500 text-sm resize-none"></textarea>
+                    </div>
+                    <button type="submit" class="w-full py-3.5 bg-sky-600 hover:bg-sky-500 text-white font-semibold rounded-xl transition-all shadow-lg shadow-sky-500/25 flex items-center justify-center gap-2">
+                        <i class="ph-bold ph-envelope-simple-open"></i> Enviar Mensaje
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- MODAL DE LECTURA COMPLETA DE ARTÍCULO -->
+    <div id="article-modal" class="fixed inset-0 z-50 bg-slate-950/70 backdrop-blur-sm hidden flex items-center justify-center p-4">
+        <div class="bg-white dark:bg-slate-800 w-full max-w-2xl rounded-3xl border border-slate-200 dark:border-slate-700 p-6 sm:p-8 shadow-2xl relative max-h-[90vh] overflow-y-auto">
+            <button id="close-modal" class="absolute top-4 right-4 p-2 rounded-full hover:bg-slate-100 dark:hover:bg-slate-700 text-slate-500 transition-colors">
+                <i class="ph-bold ph-x text-xl"></i>
+            </button>
+            <span id="modal-category" class="px-3 py-1 bg-sky-500/10 text-sky-500 rounded-full text-xs font-semibold">Categoría</span>
+            <h3 id="modal-title" class="text-2xl font-extrabold mt-3 mb-2">Título del Artículo</h3>
+            <p id="modal-date" class="text-xs text-slate-400 mb-6">Fecha de publicación</p>
+            <div id="modal-content" class="text-slate-600 dark:text-slate-300 space-y-4 text-sm leading-relaxed">
+                <!-- Contenido detallado -->
+            </div>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 py-8 transition-colors">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center sm:text-left flex flex-col sm:flex-row justify-between items-center gap-4">
+            <div>
+                <p class="font-bold text-slate-900 dark:text-white">Armando Cayo</p>
+                <p class="text-xs text-slate-500 dark:text-slate-400">Estudiante de Sistemas Informáticos • Blog Personal & Bitácora de Aprendizaje</p>
+            </div>
+            <div class="flex items-center gap-4 text-slate-500">
+                <a href="mailto:armando.cayo.dev@gmail.com" class="hover:text-sky-500 text-sm transition-colors">armando.cayo.dev@gmail.com</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT PRINCIPAL -->
+    <script>
+        // 1. BASE DE DATOS DE ARTÍCULOS
+        const articles = [
+            {
+                id: 1,
+                title: "La Informática como Motor de Superación Personal",
+                category: "Pensamientos",
+                date: "15 Octubre, 2026",
+                summary: "Cómo el aprendizaje de la programación y el pensamiento lógico transforman vidas y abren oportunidades sin fronteras.",
+                content: `
+                    <p>Cuando tomé la decisión de estudiar Sistemas Informáticos, comprendí que no se trataba solo de aprender sintaxis de código o configurar servidores. Se trataba de desarrollar una mentalidad orientada a la resolución de problemas reales.</p>
+                    <p>La informática representa una de las pocas áreas profesionales donde la disciplina, la autodidactia y la pasión pesan más que los antecedentes. Cada bug resuelto y cada programa que cobra vida refuerzan la certeza de que no hay límites infranqueables cuando te armas con conocimiento.</p>
+                    <p>Superarse mediante la tecnología significa estar dispuesto a aprender todos los días y compartir lo aprendido para impactar positivamente en nuestra comunidad.</p>
+                `,
+                image: "https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&q=80&w=600"
+            },
+            {
+                id: 2,
+                title: "Guía para Organizar tu Primer Proyecto Web",
+                category: "Tutoriales",
+                date: "02 Octubre, 2026",
+                summary: "Pasos fundamentales para estructurar archivos, usar Git y crear interfaces limpias e intuitivas desde cero.",
+                content: `
+                    <p>Escribir código funcional es el primer paso, pero estructurar un proyecto con buenas prácticas facilita enormemente su mantenimiento futuro.</p>
+                    <p>En este tutorial abordamos la división de carpetas, el uso correcto de Git para control de versiones y cómo diseñar layouts responsivos con Tailwind CSS para una óptima experiencia de usuario.</p>
+                `,
+                image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&q=80&w=600"
+            },
+            {
+                id: 3,
+                title: "Importancia de las Bases de Datos Relacionales",
+                category: "Sistemas",
+                date: "20 Septiembre, 2026",
+                summary: "Por qué el diseño de diagramas entidad-relación es clave en el éxito de los sistemas informáticos.",
+                content: `
+                    <p>Las bases de datos son el corazón de cualquier aplicación moderna. En la carrera de Sistemas Informáticos aprendemos a normalizar datos para evitar redundancias y garantizar la integridad de la información.</p>
+                    <p>Estructurar tablas eficientemente en SQL es una habilidad indispensable para todo profesional tech.</p>
+                `,
+                image: "https://images.unsplash.com/photo-1544383835-bda2bc66a55d?auto=format&fit=crop&q=80&w=600"
+            },
+            {
+                id: 4,
+                title: "Mi Experiencia Construyendo un Monitor de Red",
+                category: "Proyectos",
+                date: "05 Septiembre, 2026",
+                summary: "Lecciones aprendidas al programar un script de diagnóstico y estado de red con Python y Bash.",
+                content: `
+                    <p>El desarrollo de herramientas internas de sistemas ayuda a afianzar los conceptos teóricos vistos en las materias de Redes y Telecomunicaciones.</p>
+                    <p>En este artículo muestro el diseño conceptual y los desafíos de captura de paquetes al desarrollar una utilidad de monitoreo en entornos Linux.</p>
+                `,
+                image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&q=80&w=600"
+            }
+        ];
+
+        // 2. RENDERIZACIÓN Y FILTRADO DE ARTÍCULOS
+        let currentFilter = 'Todos';
+        let searchQuery = '';
+
+        function renderArticles() {
+            const container = document.getElementById('posts-container');
+            container.innerHTML = '';
+
+            const filtered = articles.filter(a => {
+                const matchesFilter = currentFilter === 'Todos' || a.category === currentFilter;
+                const matchesSearch = a.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
+                                      a.summary.toLowerCase().includes(searchQuery.toLowerCase());
+                return matchesFilter && matchesSearch;
+            });
+
+            if (filtered.length === 0) {
+                container.innerHTML = `<div class="col-span-full text-center py-12 text-slate-400">No se encontraron artículos que coincidan con los criterios.</div>`;
+                return;
+            }
+
+            filtered.forEach(article => {
+                const card = document.createElement('div');
+                card.className = "bg-white dark:bg-slate-800 rounded-2xl overflow-hidden border border-slate-200 dark:border-slate-700 shadow-sm hover:shadow-md transition-all flex flex-col justify-between";
+                card.innerHTML = `
+                    <div>
+                        <div class="h-48 overflow-hidden relative">
+                            <img src="${article.image}" alt="${article.title}" class="w-full h-full object-cover">
+                            <span class="absolute top-3 left-3 bg-sky-600 text-white text-xs px-2.5 py-1 rounded-full font-medium shadow-md">${article.category}</span>
+                        </div>
+                        <div class="p-6">
+                            <p class="text-xs text-slate-400 mb-2">${article.date}</p>
+                            <h3 class="text-xl font-bold mb-2 text-slate-900 dark:text-white">${article.title}</h3>
+                            <p class="text-slate-600 dark:text-slate-400 text-sm line-clamp-3">${article.summary}</p>
+                        </div>
+                    </div>
+                    <div class="p-6 pt-0">
+                        <button onclick="openModal(${article.id})" class="text-sky-500 hover:text-sky-600 text-sm font-semibold flex items-center gap-1">
+                            Leer artículo completo <i class="ph-bold ph-arrow-right"></i>
+                        </button>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        // Buscador
+        document.getElementById('search-input').addEventListener('input', (e) => {
+            searchQuery = e.target.value;
+            renderArticles();
+        });
+
+        // Botones de Categoría
+        document.querySelectorAll('#blog-filters button').forEach(button => {
+            button.addEventListener('click', (e) => {
+                document.querySelectorAll('#blog-filters button').forEach(btn => {
+                    btn.className = "filter-btn px-4 py-2 rounded-xl text-sm font-medium bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 hover:bg-sky-500 hover:text-white transition-all";
+                });
+                e.target.className = "filter-btn active px-4 py-2 rounded-xl text-sm font-medium bg-sky-600 text-white transition-all";
+                
+                currentFilter = e.target.getAttribute('data-filter');
+                renderArticles();
+            });
+        });
+
+        // Modal de Lectura
+        function openModal(id) {
+            const article = articles.find(a => a.id === id);
+            if (!article) return;
+
+            document.getElementById('modal-category').innerText = article.category;
+            document.getElementById('modal-title').innerText = article.title;
+            document.getElementById('modal-date').innerText = article.date;
+            document.getElementById('modal-content').innerHTML = article.content;
+
+            document.getElementById('article-modal').classList.remove('hidden');
+        }
+
+        document.getElementById('close-modal').addEventListener('click', () => {
+            document.getElementById('article-modal').classList.add('hidden');
+        });
+
+        // 3. GESTIÓN DE COMENTARIOS (CON LOCALSTORAGE)
+        const defaultComments = [
+            {
+                name: "Carlos Mendoza",
+                role: "Estudiante de Informática",
+                text: "Excelente espacio Armando. Un mensaje de superación muy inspirador para los que estamos en la carrera.",
+                date: "Hace 2 días"
+            }
+        ];
+
+        function getStoredComments() {
+            const stored = localStorage.getItem('armando_blog_comments');
+            return stored ? JSON.parse(stored) : defaultComments;
+        }
+
+        function renderComments() {
+            const container = document.getElementById('comments-list');
+            const comments = getStoredComments();
+            container.innerHTML = '';
+
+            comments.forEach(c => {
+                const item = document.createElement('div');
+                item.className = "bg-white dark:bg-slate-800 p-5 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm";
+                item.innerHTML = `
+                    <div class="flex justify-between items-start mb-2">
+                        <div>
+                            <h4 class="font-bold text-slate-900 dark:text-white">${c.name}</h4>
+                            <span class="text-xs text-sky-500 font-medium">${c.role || 'Visitante'}</span>
+                        </div>
+                        <span class="text-xs text-slate-400">${c.date}</span>
+                    </div>
+                    <p class="text-slate-600 dark:text-slate-300 text-sm">${c.text}</p>
+                `;
+                container.appendChild(item);
+            });
+        }
+
+        document.getElementById('comment-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('comment-name').value;
+            const role = document.getElementById('comment-role').value;
+            const text = document.getElementById('comment-text').value;
+
+            const comments = getStoredComments();
+            comments.unshift({
+                name: name,
+                role: role,
+                text: text,
+                date: 'Reciente'
+            });
+
+            localStorage.setItem('armando_blog_comments', JSON.stringify(comments));
+            renderComments();
+            e.target.reset();
+        });
+
+        // 4. FORMULARIO DE CONTACTO
+        document.getElementById('contact-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            document.getElementById('contact-success').classList.remove('hidden');
+            e.target.reset();
+            setTimeout(() => {
+                document.getElementById('contact-success').classList.add('hidden');
+            }, 5000);
+        });
+
+        // 5. TEMA OSCURO / CLARO Y MENÚ RESPONSIVO
+        const themeToggle = document.getElementById('theme-toggle');
+        const themeIcon = document.getElementById('theme-icon');
+
+        themeToggle.addEventListener('click', () => {
+            document.documentElement.classList.toggle('dark');
+            if (document.documentElement.classList.contains('dark')) {
+                themeIcon.className = 'ph-bold ph-sun text-xl text-amber-400';
+            } else {
+                themeIcon.className = 'ph-bold ph-moon text-xl text-slate-700';
+            }
+        });
+
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // INICIALIZACIÓN
+        window.onload = function() {
+            renderArticles();
+            renderComments();
+        }
+    </script>
+</body>
+</html>
